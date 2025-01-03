@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\shivn\\Desktop\\Folder_F\\Technical_Training\\Projects\\J_Test\\J-Test\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E3877176-05CD-418E-A472-8AA3AA715114}|J-Test.csproj|c:\\users\\shivn\\desktop\\folder_f\\technical_training\\projects\\j_test\\j-test\\controllers\\userstorydescription.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3877176-05CD-418E-A472-8AA3AA715114}|J-Test.csproj|solutionrelative:controllers\\userstorydescription.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserStoryDescription.cs",
+              "DocumentMoniker": "C:\\Users\\shivn\\Desktop\\Folder_F\\Technical_Training\\Projects\\J_Test\\J-Test\\Controllers\\UserStoryDescription.cs",
+              "RelativeDocumentMoniker": "Controllers\\UserStoryDescription.cs",
+              "ToolTip": "C:\\Users\\shivn\\Desktop\\Folder_F\\Technical_Training\\Projects\\J_Test\\J-Test\\Controllers\\UserStoryDescription.cs",
+              "RelativeToolTip": "Controllers\\UserStoryDescription.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAYwEIAAACzAQAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-03T16:20:49.74Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

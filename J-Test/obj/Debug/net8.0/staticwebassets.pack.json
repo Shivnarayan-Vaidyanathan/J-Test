@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\shivn\\Desktop\\Folder_F\\Technical_Training\\Projects\\J_Test\\J-Test\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\J-Test.bundle.scp.css",
+      "PackagePath": "staticwebassets\\J-Test.z6cudu9udm.bundle.scp.css"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.J-Test.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.J-Test.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.J-Test.props",
+      "PackagePath": "build\\J-Test.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.J-Test.props",
+      "PackagePath": "buildMultiTargeting\\J-Test.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.J-Test.props",
+      "PackagePath": "buildTransitive\\J-Test.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
