@@ -12,15 +12,6 @@ namespace J_Test.Models
         public virtual DbSet<Credential> Credentials { get; set; }
         public virtual DbSet<Detail> Details { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            // Only configure if not already configured
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer("Data Source=(localdb)\\MyLocal;Initial Catalog=J_Test_Credentials;Integrated Security=True;TrustServerCertificate=True;");
-            }
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Configure Credential Entity
