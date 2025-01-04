@@ -1,0 +1,204 @@
+/* Settings.css */
+
+/* General Container */
+.settings-container {
+  width: 100%;
+  max-height: 485px;
+  max-width: 800px; /* Adjusted width for more space */
+  margin: 0 auto;
+  padding: 20px;
+  background-color: lightgoldenrodyellow;
+  box-sizing: border-box;
+  margin-top: 10px;
+}
+
+.credentials-form {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.field {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+}
+
+.field label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 14px;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+}
+
+.field input {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Add space between elements */
+}
+
+.lock-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.save-button, .load-button {
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 4px;
+}
+
+.save-button:disabled, .load-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.save-button {
+  background-color: #4CAF50; /* Green color */
+}
+
+.load-button {
+  background-color: #4CAF50; /* Green color */
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Layout for Stored Credentials and Stored Signups side by side */
+.stored-sections-container {
+  display: flex;
+  justify-content: space-between; /* Space between sections */
+  gap: 50px; /* Space between the two sections */
+  margin-top: 30px;
+}
+
+.credentials-list{
+  flex: 1; /* Make both sections take equal space */
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.Signup-list {
+  flex: 1; /* Make both sections take equal space */
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.credentials-list h3,
+.Signup-list h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Table Styling */
+.table-container {
+  max-height: 400px; /* Adjust the max-height as needed */
+  overflow-y: auto;
+}
+
+.credentials-table,
+.Signup-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+
+.credentials-table th,
+.credentials-table td,
+.Signup-table th,
+.Signup-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.credentials-table th,
+.Signup-table th {
+  background-color: #f2f2f2;
+  top: 0;
+  z-index: 1;
+}
+
+.credentials-table tbody,
+.Signup-table tbody {
+  overflow-y: scroll;
+}
+
+/* Delete Button */
+.delete-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+  background-color: #d75a5a;
+}
+
+/* Disabled State Styling */
+.delete-button:disabled {
+  background-color: #d3d3d3; /* Light grey */
+  cursor: not-allowed;
+  color: #a9a9a9; /* Greyed-out text */
+}
+
+/* Loading State */
+.loading {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Responsive Styling */
+@media (max-width: 800px) {
+  .stored-sections-container {
+    flex-direction: column; /* Stack sections on smaller screens */
+  }
+
+  .credentials-table th,
+  .credentials-table td,
+  .Signup-table th,
+  .Signup-table td {
+    font-size: 12px;
+  }
+
+  .delete-button {
+    font-size: 12px;
+  }
+
+  .field input {
+    font-size: 14px;
+  }
+}

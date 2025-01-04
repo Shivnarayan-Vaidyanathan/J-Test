@@ -1,0 +1,306 @@
+/* Main container for the chat application */
+.chatbox-container {
+  display: flex;
+  height: 100vh;
+  width: 60%;
+  overflow: hidden;
+  position: relative; /* Keeps the import button in view */
+}
+
+/* Side navigation styling */
+.side-nav-left {
+  background-color: #f0f0f0;
+  width: 250px;
+  height: 100%;
+  padding: 20px;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Chat container styling */
+.chat-container {
+  flex: 3;
+  background-color: aliceblue;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  position: relative;
+}
+
+/* Chat box styling */
+.chat-box {
+  width: 100%;
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 600px;
+  overflow-y: auto;
+}
+
+/* Messages area */
+.chat-box-messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 12px;
+  padding-bottom: 15px;
+  padding-top: 10px;
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Message styling */
+.message {
+  padding: 12px 18px;
+  border-radius: 20px;
+  max-width: 80%;
+  word-wrap: break-word;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-top: 10px;
+}
+
+/* User message styling */
+.user {
+  background-color: rgb(240, 248, 255);
+  color: black;
+  margin-left: auto;
+  border-radius: 20px 20px 0 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: fit-content;
+  max-width: 75%;
+}
+
+/* Bot message styling */
+.bot {
+  background-color: #c8e6c9;
+  color: black;
+  margin-right: auto;
+  border-radius: 20px 20px 20px 0;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: fit-content;
+  max-width: 800px;
+  max-height: 800px;
+  overflow-y: auto;
+}
+
+/* Chat input section */
+.chat-input-container {
+  display: flex;
+  align-items: center; /* Vertically centers the button with the textarea */
+  gap: 10px; /* Ensures space between the textarea and button */
+  width: 100%; /* Ensures the container takes full width */
+  padding-top: 30px;
+}
+
+/* Textarea styling */
+textarea {
+  width: 100%; /* Takes full width of the parent container */
+  height: 80px; /* Adjust the height to a fixed size */
+  padding: 14px 50px 14px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  resize: none;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s;
+}
+
+textarea:focus {
+  background-color: #fff;
+  border-color: #4caf50;
+}
+
+/* Send button styling */
+button {
+  height: 45px;
+  width: 100px; /* Fixed width for the button */
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:hover {
+  background-color: goldenrod;
+}
+
+button:active {
+  background-color: goldenrod;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Import button styling */
+.import-button {
+  position: fixed;
+  top: 22.5%;
+  right: 0;
+  width: 40px;
+  transform: translateY(-50%);
+  background-color: grey;
+  color: white;
+  border: none;
+  padding: 5px;
+  margin-top: 0.5px;
+  border-radius: 5%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1000; /* Ensures the button is always on top */
+}
+
+.import-button:hover {
+  background-color: #4caf50;
+}
+
+.import-button:focus {
+  outline: none;
+}
+
+/* Sidebar visibility control */
+.import-sidebar {
+  position: fixed;
+  top: 0;
+  right: -50px; /* Initially hidden off-screen */
+  width: 500px;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  overflow-y: auto;
+  z-index: 1001;
+  transition: transform 0.3s ease;
+}
+
+.import-sidebar.open {
+  transform: translateX(-100%); /* Bring the sidebar fully into view */
+}
+
+/* Sidebar header styling */
+.sidebar-title {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+/* Test case list container */
+.test-case-list-container {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  max-height: 300px;
+  max-width: 300px;
+  overflow-y: auto;
+}
+
+/* Individual test case styling */
+.test-case-item {
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #e8f5e9;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.test-case-item strong {
+  font-weight: bold;
+  color: #2c6e49;
+}
+
+.test-case-item ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.test-case-item li {
+  margin-bottom: 5px;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .test-case-list-container {
+    max-height: 200px;
+  }
+}
+
+/* Table Styling for Test Cases */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  color: #333;
+}
+
+td {
+  background-color: #fff;
+  color: #333;
+}
+
+/* Loading Animation: Bouncing Dots */
+.loading-dots {
+  display: flex;
+  justify-content: space-between;  /* Align dots to the left */
+  width: 50px;
+  margin: 20px 0 20px 20px; /* Space the dots from the top and bottom, and margin-left for left alignment */
+}
+
+.loading-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #4caf50;
+  animation: bounce 1.4s infinite ease-in-out;
+}
+
+.loading-dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.loading-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loading-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-15px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}

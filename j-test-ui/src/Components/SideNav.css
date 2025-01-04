@@ -1,0 +1,108 @@
+/* Side navigation container */
+.side-nav-container {
+  position: fixed;
+  top: 29.8%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 999; /* Ensure it is below the chat box */
+}
+
+/* The side navigation itself */
+.side-nav {
+  position: absolute;
+  top: 50%;
+  left: -250px; /* Initially hidden off-screen */
+  width: 250px;
+  height: 100%;
+  color: #fff;
+  transition: left 0.3s ease;
+  box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column; /* Use column layout for buttons */
+  align-items: flex-start; /* Align items to the left */
+  padding-left: 50px; /* Add padding on the left side */
+  box-sizing: border-box;
+}
+
+/* Slide in when hovered */
+.side-nav-container:hover .side-nav {
+  left: 0; /* Slide in from the left when hovering over the container */
+}
+
+/* Side nav links */
+.side-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%; /* Make sure the list spans the full width */
+}
+
+/* Styling each list item (button) */
+.side-nav ul li {
+  padding: 15px;
+  text-align: left;
+  width: 100%; /* Full width for the buttons */
+}
+
+/* Styling the links inside the list items (buttons) */
+.side-nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  display: block;
+  width: 100%; /* Make sure the link fills the entire li */
+  transition: background-color 0.3s ease;
+  padding: 10px 20px; /* Add padding around the text */
+  border-radius: 5px; /* Optional: for rounded corners */
+  margin-bottom: 10px;
+}
+
+/* Change background color on hover */
+.side-nav ul li a:hover {
+  background-color: #555;
+}
+
+/* Arrow button that toggles the side navigation */
+.arrow {
+  position: absolute;
+  top: 50%;
+  left: 0; /* Positioned at the left side */
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, left 0.3s ease, opacity 0.3s ease;
+  background: grey;
+  padding: 5px;
+  width: 40px;
+  margin-top: 0.5px;
+  border-radius: 5%;
+  color: white;
+  opacity: 1;
+  z-index: 1001; /* Ensure it's above the side nav */
+  margin-bottom: 20px; /* Add a gap between the arrow button and the home button */
+  margin-top: -60px; /* Add spacing between the arrow and the first button */
+}
+
+/* Make arrow more sleek when hovered */
+.arrow:hover {
+  opacity: 1;
+  background: #4caf50; /* Darker background when hovered */
+}
+
+/* Active state for side nav */
+.side-nav.active {
+  left: 0; /* Slide in */
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+  .side-nav {
+      width: 200px; /* Adjust width for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .side-nav {
+      width: 180px; /* Further adjust width for smaller screens */
+  }
+}

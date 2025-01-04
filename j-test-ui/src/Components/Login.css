@@ -1,0 +1,109 @@
+/* Reset some basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fa;
+    color: #333;
+  }
+  
+  /* Container for the login form */
+  .login-container {
+    max-width: 500px;
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 50px auto;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #4caf50;
+  }
+  
+  /* Form styling */
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+  }
+  
+  /* Input field styling */
+  input {
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: #4caf50;
+  }
+  
+  input.error {
+    border-color: red;
+    background-color: #fff0f0;
+  }
+  
+  /* Button styling */
+  button {
+    padding: 12px;
+    background-color: #4caf50;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Error message styling */
+  div[style*="color: red"] {
+    color: red;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  /* Sign-up link */
+  p {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  p a {
+    text-decoration: none;
+    color: #4caf50;
+    font-weight: bold;
+  }
+  
+  p a:hover {
+    color: goldenrod;
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 768px) {
+    .login-container {
+      width: 90%;
+      padding: 15px;
+    }
+  
+    h2 {
+      font-size: 1.6rem;
+    }
+  }
+  

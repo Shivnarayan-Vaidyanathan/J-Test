@@ -1,0 +1,142 @@
+/* General Reset and Body Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f7fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Center the content vertically and horizontally */
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+/* Title styling */
+.App h1 {
+  font-size: 2.5rem;
+  color: #4caf50;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Navigation styles */
+nav {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+nav a {
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 1.2rem;
+  color: #4caf50;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: goldenrod;
+}
+
+/* Styling for Login, Signup, and MainPage */
+.route-container {
+  width: 100%;
+  max-width: 600px;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a050;
+}
+
+input:focus {
+  outline: none;
+  border-color: #4caf50;
+}
+
+input.error {
+  border-color: red;
+}
+
+/* Main Page Styling */
+.main-page {
+  text-align: center;
+}
+
+.main-page button {
+  padding: 10px 20px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.main-page button:hover {
+  background-color: #d32f2f;
+}
+
+.logo {
+  height: 130px;   /* Set your desired height */
+  width: 130px;     /* Keep the aspect ratio */
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+  .App {
+    padding: 15px;
+  }
+
+  .route-container {
+    padding: 20px;
+    width: 90%;
+  }
+
+  .App h1 {
+    font-size: 2rem;
+  }
+}
