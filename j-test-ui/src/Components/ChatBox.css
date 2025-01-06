@@ -304,3 +304,26 @@ td {
     transform: translateY(-10px);
   }
 }
+
+/* Styles for the Export to Word button */
+.export-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Example CSS for table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #000000;
+}
+
+th {
+  background-color: #f2f2f2;
+}

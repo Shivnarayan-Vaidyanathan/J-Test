@@ -4,17 +4,17 @@ import ImportDataSidebar from './ImportDataSidebar';
 import './ChatBox.css';
 import SideNav from './SideNav';
 import { marked } from 'marked'; // Correct import statement
+import htmlDocx from 'html-docx-js/dist/html-docx'; // Import html-docx-js
 
 function ChatBox() {
-  const [loading, setLoading] = useState(false); // State for loading indicator
-  const [userStory, setUserStory] = useState(''); // Textarea content
-  const [messages, setMessages] = useState([]); // Chat messages
-  const [isSidebarVisible, setIsSidebarVisible] = useState(false); // Sidebar visibility state
+  const [loading, setLoading] = useState(false);
+  const [userStory, setUserStory] = useState('');
+  const [messages, setMessages] = useState([]);
+  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
-  const [selectedCredential, setSelectedCredential] = useState(null); // State for storing selected credential
+  const [selectedCredential, setSelectedCredential] = useState(null);
   const navigate = useNavigate();
-
-  const location = useLocation(); // Get the current location to retrieve the state
+  const location = useLocation();
   const selectedCredentialFromState = location.state?.selectedCredential;
 
   useEffect(() => {
@@ -29,7 +29,7 @@ function ChatBox() {
 
   const generateTestCases = async (userStoryData) => {
     setIsProcessing(true);
-    setLoading(true);  // Start loading when API is called
+    setLoading(true);
     try {
       const response = await fetch('https://localhost:7216/api/UserStoryDescription/GenerateTestCases', {
         method: 'POST',
@@ -38,28 +38,26 @@ function ChatBox() {
         },
         body: JSON.stringify({ userStory: userStoryData }),
       });
-  
+
       if (!response.ok) {
         throw new Error(`Failed to generate test cases. Status: ${response.status}`);
       }
-  
+
       const responseData = await response.json();
-      console.log("API Response:", responseData);  // Log the entire response
-  
       const candidates = responseData.candidates;
-  
+
       if (candidates && candidates.length > 0) {
         const parts = candidates[0].content.parts;
         let markdownContent = '';
-  
+
         if (Array.isArray(parts)) {
           markdownContent = parts.map(part => part.text).join('\n');
         }
-  
+
         if (typeof markdownContent !== 'string') {
           throw new Error('Invalid content format');
         }
-  
+
         const htmlContent = marked(markdownContent);  // Parse the markdown to HTML
         setMessages((prevMessages) => [
           ...prevMessages,
@@ -79,44 +77,81 @@ function ChatBox() {
       ]);
     } finally {
       setIsProcessing(false);
-      setLoading(false);  // Ensure loading is set to false after the request
+      setLoading(false);
     }
-  };  
+  };
 
   const handleSendMessage = () => {
     if (!userStory.trim()) return;
   
     setMessages([]);  // Clear old messages
-  
     setMessages((prevMessages) => [
       ...prevMessages,
       { text: userStory, isUserMessage: true },
     ]);
-  
     setLoading(true);  // Set loading true before making the request
-  
-    // Refine the greeting check to only trigger on actual greetings
+
     if (/^\s*(hi|hello|hey)\s*$/i.test(userStory)) {
       setMessages((prevMessages) => [
         ...prevMessages,
         { text: 'Hello !, how may I help you ?', isUserMessage: false },
       ]);
-      setLoading(false); // Stop the loading after sending the greeting message
-      setUserStory('');  // Reset the input
-      return;  // Exit the function to prevent further actions
+      setLoading(false);
+      setUserStory('');
+      return;
     }
-  
-    // If it's not a greeting, call generateTestCases
+
     generateTestCases(userStory);
-    setUserStory('');  // Reset the input
-  };    
+    setUserStory('');
+  };
 
   const handleSelectUserStory = (story) => {
-    setUserStory(story.description || '');  // Populate the description in the textarea
+    setUserStory(story.description || '');
   };
 
   const toggleSidebar = () => {
-    setIsSidebarVisible(!isSidebarVisible);  // Toggle the sidebar visibility
+    setIsSidebarVisible(!isSidebarVisible);
+  };
+
+  const handleExportToWord = () => {
+    // Filter only bot messages and prepare them as a table
+    const botMessages = messages.filter(msg => !msg.isUserMessage);
+  
+    if (botMessages.length === 0) {
+      alert('No bot messages to export.');
+      return;
+    }
+  
+    let tableContent = `
+      <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+          <tr>
+            <th style="border: 1px solid #000000; padding: 8px; text-align: left;">Message #</th>
+            <th style="border: 1px solid #000000; padding: 8px; text-align: left;">Sender</th>
+            <th style="border: 1px solid #000000; padding: 8px; text-align: left;">Content</th>
+          </tr>
+        </thead>
+        <tbody>`;
+  
+    botMessages.forEach((msg, index) => {
+      tableContent += `
+        <tr>
+          <td style="border: 1px solid #000000; padding: 8px;">${index + 1}</td>
+          <td style="border: 1px solid #000000; padding: 8px;">Bot</td>
+          <td style="border: 1px solid #000000; padding: 8px;">${msg.text}</td>
+        </tr>`;
+    });
+  
+    tableContent += `</tbody></table>`;
+  
+    // Convert HTML to DOCX directly
+    const convertedDoc = htmlDocx.asBlob(tableContent);
+  
+    // Create a download link
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(convertedDoc);
+    link.download = 'Functional Test Cases.docx';  // Default file name
+    link.click();  // Trigger the download prompt
   };
 
   return (
@@ -129,10 +164,9 @@ function ChatBox() {
               <div
                 key={index}
                 className={`message ${message.isUserMessage ? 'user' : 'bot'}`}
-                dangerouslySetInnerHTML={{ __html: message.text }} // Render HTML content
+                dangerouslySetInnerHTML={{ __html: message.text }}
               />
             ))}
-            {/* Display loading indicator when loading is true */}
             {loading && (
               <div className="loading-dots">
                 {Array.from({ length: 3 }).map((_, index) => (
@@ -151,6 +185,10 @@ function ChatBox() {
             />
             <button onClick={handleSendMessage} disabled={isProcessing || !userStory.trim()}>
               Send
+            </button>
+            {/* Export Button */}
+            <button id="export-word" onClick={handleExportToWord} disabled={messages.filter(msg => !msg.isUserMessage).length === 0 }>
+              Export
             </button>
           </div>
         </div>
