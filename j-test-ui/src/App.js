@@ -9,7 +9,6 @@ import HomePage from './Components/HomePage';
 import Settings from './Components/Settings';  // Import the Settings component
 
 import logo from './J-Test.png';  // Adjust the path to your image
-import logo1 from './Gemini.webp';  // Adjust the path to your image
 
 function AppContent() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -36,8 +35,6 @@ function AppContent() {
         <Route path="/Settings" element={isAuthenticated ? <Settings /> : <Navigate to="/Login" />} />
         <Route path="/" element={<Navigate to="/Login" />} />
       </Routes>
-      <h2>Powered by</h2>
-      <img src={logo1} alt="Gemini Logo" width={200} height={120} className="logo1" />
     </div>
   );
 }

@@ -94,6 +94,12 @@
   p a:hover {
     color: goldenrod;
   }
+
+  .logo-container {
+    display: flex;
+    justify-content: center; /* Horizontally centers the logo */
+    align-items: center;     /* Vertically centers the logo */
+  }  
   
   /* Responsive design for smaller screens */
   @media (max-width: 768px) {

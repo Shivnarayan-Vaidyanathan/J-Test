@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
+import logo1 from './Gemini.webp';  // Adjust the path to your image
 
 function LoginPage({ login }) { // Updated to receive `login` as a prop
   const [email, setEmail] = useState('');
@@ -70,6 +71,10 @@ function LoginPage({ login }) { // Updated to receive `login` as a prop
       <p>
         Don't have an account? <a href="/Signup">Sign up</a>
       </p>
+      <h2>Powered by</h2>
+      <div className="logo-container">
+        <img src={logo1} alt="Gemini Logo" width={200} height={120} className="logo1" />
+      </div>
     </div>
   );
 }
