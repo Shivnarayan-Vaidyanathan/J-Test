@@ -55,11 +55,11 @@ function ImportDataSidebar({ onSelectUserStory, onClose, isSidebarVisible, selec
   const handleClearJiraData = () => {
     setJiraData([]);
     setError(null);
-    setDomain('');
-    setProject('');
-    setIssueType('');
-    setUsername('');
-    setApiToken('');
+    //setDomain('');
+    //setProject('');
+    //setIssueType('');
+    //setUsername('');
+    //setApiToken('');
   };
 
   return (
@@ -105,10 +105,10 @@ function ImportDataSidebar({ onSelectUserStory, onClose, isSidebarVisible, selec
     
         <div className="button-container">
           <button onClick={fetchJiraData} disabled={loading} className="fetch-button">
-            {loading ? 'Fetching...' : 'Fetch Data'}
+            {loading ? 'Fetching...' : 'Fetch'}
           </button>
           <button className="clear-button" onClick={handleClearJiraData}>
-            Clear Data
+            Clear
           </button>
         </div>
       </div>
